@@ -21,31 +21,26 @@ class _NewsScreenState extends State<NewsScreen> {
         builder: (((context) => Scaffold(
               backgroundColor: Colors.grey.shade800,
               body: SingleChildScrollView(
-                child: GestureDetector(
-                  onTap: () {
-                    controller.teste();
-                  },
-                  child: Center(
-                    child: Column(
-                      children: [
-                        Container(
-                          height: 100,
-                          width: 100,
-                          color: Colors.green,
-                        ),
-                        SizedBox(
-                          height: height * 1,
-                          width: width,
-                          child: ListView.builder(
-                              itemCount: controller.news.value.length,
-                              itemBuilder: (BuildContext context, int index) {
-                                final list = controller.news.value[index];
-                                return Text(
-                                    "List ${list.title}");
-                              }),
-                        ),
-                      ],
-                    ),
+                child: Center(
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: height * 1,
+                        width: width,
+                        child: ListView.builder(
+                            itemCount: controller.news.value.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              final list = controller.news.value[index];
+                              return Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  list.title,
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              );
+                            }),
+                      ),
+                    ],
                   ),
                 ),
               ),
