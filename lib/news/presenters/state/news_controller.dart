@@ -4,9 +4,12 @@ import '../../domain/respositories/news_repositore.dart';
 
 class NewsController {
   final news = RxNotifier<List>([]);
+  final isLoading = RxNotifier<bool>(false);
 
-  void teste() async {
+  Future teste() async {
+    isLoading.value = true;
     final response = await NewsRepository.getVideoInfo();
     news.value = response;
+    isLoading.value = false;
   }
 }
