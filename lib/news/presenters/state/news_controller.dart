@@ -1,4 +1,5 @@
 import 'package:rx_notifier/rx_notifier.dart';
+import 'package:html/parser.dart' show parse;
 
 import '../../domain/respositories/news_repositore.dart';
 
@@ -7,6 +8,7 @@ class NewsController {
   final isLoading = RxNotifier<bool>(false);
   final slug = RxNotifier<String>("");
   final creatorUsername = RxNotifier<String>("");
+  final contentBody = RxNotifier<String>("");
 
   Future getNews() async {
     isLoading.value = true;
@@ -18,6 +20,9 @@ class NewsController {
   Future getNewsInfo() async {
     final response =
         await NewsRepository.getNewsInfo(creatorUsername.value, slug.value);
+    contentBody.value = response.body!;
+    var document = parse(contentBody.value);
+    print("parse: ${document.outerHtml}");
     print("test: ${response.body}");
   }
 }

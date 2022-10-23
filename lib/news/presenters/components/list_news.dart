@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:turbonews/news/presenters/news_detail.dart';
 
 import '../state/news_controller.dart';
 
@@ -23,6 +24,11 @@ class ListNews extends StatelessWidget {
                 controller.slug.value = list.slug;
                 controller.creatorUsername.value = list.ownerUsername;
                 controller.getNewsInfo();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const NewsDetailSreen()),
+                );
               },
               child: Container(
                 decoration: BoxDecoration(
