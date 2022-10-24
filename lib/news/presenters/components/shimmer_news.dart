@@ -27,7 +27,7 @@ class ShimmerNews extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.all(8.0),
                     child: Text(
-                      "oi",
+                      "uiuiquesono",
                       style: TextStyle(
                         color: Colors.white,
                       ),
