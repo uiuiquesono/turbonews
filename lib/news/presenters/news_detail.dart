@@ -16,8 +16,6 @@ class _NewsDetailSreenState extends State<NewsDetailSreen> {
   final controller = GetIt.I.get<NewsController>();
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
-    final height = MediaQuery.of(context).size.height;
     return RxBuilder(
         builder: ((context) => WillPopScope(
               onWillPop: () async {
