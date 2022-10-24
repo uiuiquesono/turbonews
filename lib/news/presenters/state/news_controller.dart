@@ -22,6 +22,7 @@ class NewsController {
         await NewsRepository.getNewsInfo(creatorUsername.value, slug.value);
     contentBody.value = response.body!;
     var document = parse(contentBody.value);
+    
     print("parse: ${document.outerHtml}");
     print("test: ${response.body}");
   }
